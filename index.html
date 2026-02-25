@@ -1,0 +1,1479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales & Marketing Discovery - Vulcan Industries | My AI Fluency</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --purple-400: hsl(271, 91%, 65%);
+            --purple-500: hsl(271, 91%, 55%);
+            --purple-600: hsl(271, 91%, 45%);
+            --purple-700: hsl(271, 91%, 35%);
+            --purple-800: hsl(271, 91%, 25%);
+            --purple-900: hsl(271, 91%, 15%);
+            --cyan-400: hsl(187, 100%, 68%);
+            --cyan-300: hsl(187, 100%, 78%);
+            --bg-dark: hsl(220, 26%, 6%);
+            --bg-card: hsl(220, 26%, 8%);
+            --bg-input: hsl(220, 26%, 12%);
+            --border-color: hsl(220, 13%, 18%);
+            --text-primary: hsl(0, 0%, 98%);
+            --text-secondary: hsl(215, 5%, 65%);
+            --text-muted: hsl(215, 5%, 50%);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: var(--bg-dark);
+            min-height: 100vh;
+            padding: 20px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Subtle background grid effect */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(ellipse at 20% 20%, rgba(168, 85, 247, 0.08) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(92, 230, 255, 0.05) 0%, transparent 50%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 40px 30px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+        }
+
+        .logo-text {
+            font-size: 0.85em;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            background: linear-gradient(135deg, var(--purple-400), var(--cyan-400));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 24px;
+        }
+
+        h1 {
+            font-size: 2em;
+            font-weight: 800;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            line-height: 1.2;
+        }
+
+        .subtitle {
+            font-size: 1.1em;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+
+        .intro {
+            color: var(--text-secondary);
+            padding: 20px 24px;
+            background: rgba(168, 85, 247, 0.06);
+            border-radius: 10px;
+            border-left: 3px solid var(--purple-400);
+            text-align: left;
+            font-size: 0.95em;
+            line-height: 1.7;
+        }
+
+        /* Progress bar */
+        .progress-container {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 12px 0;
+            margin-bottom: 30px;
+        }
+
+        .progress-bar-bg {
+            height: 4px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .progress-bar-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--purple-400), var(--cyan-400));
+            border-radius: 4px;
+            transition: width 0.4s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            text-align: center;
+            font-size: 0.8em;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        /* Sections */
+        .section {
+            margin-bottom: 30px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 32px;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            background: linear-gradient(135deg, var(--purple-400), var(--purple-600));
+            color: white;
+            font-size: 0.85em;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .section-description {
+            color: var(--text-muted);
+            font-size: 0.9em;
+            margin-bottom: 28px;
+            padding-left: 42px;
+        }
+
+        /* Form elements */
+        .form-group {
+            margin-bottom: 28px;
+        }
+
+        .form-group:last-child {
+            margin-bottom: 0;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.95em;
+        }
+
+        label .required {
+            color: var(--purple-400);
+            margin-left: 3px;
+        }
+
+        label .question-number {
+            color: var(--text-muted);
+            font-weight: 400;
+            margin-right: 6px;
+            font-size: 0.9em;
+        }
+
+        .help-text {
+            font-size: 0.85em;
+            color: var(--text-muted);
+            margin-top: 6px;
+            font-style: italic;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="tel"],
+        input[type="url"],
+        textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 10px;
+            font-size: 0.95em;
+            font-family: 'Inter', sans-serif;
+            background: var(--bg-input);
+            color: var(--text-primary);
+            transition: border-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="text"]:focus,
+        input[type="email"]:focus,
+        input[type="tel"]:focus,
+        input[type="url"]:focus,
+        textarea:focus {
+            outline: none;
+            border-color: var(--purple-400);
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+        }
+
+        input::placeholder,
+        textarea::placeholder {
+            color: var(--text-muted);
+        }
+
+        textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        /* Checkbox and radio styling */
+        .checkbox-group,
+        .radio-group {
+            margin-top: 10px;
+        }
+
+        .checkbox-item,
+        .radio-item {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            padding: 10px 14px;
+            border-radius: 8px;
+            border: 1px solid transparent;
+            transition: background 0.2s, border-color 0.2s;
+            cursor: pointer;
+        }
+
+        .checkbox-item:hover,
+        .radio-item:hover {
+            background: rgba(168, 85, 247, 0.06);
+            border-color: rgba(168, 85, 247, 0.15);
+        }
+
+        input[type="checkbox"],
+        input[type="radio"] {
+            margin-right: 12px;
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--purple-400);
+            flex-shrink: 0;
+        }
+
+        .checkbox-item span,
+        .radio-item span {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+            cursor: pointer;
+        }
+
+        /* Rating grid */
+        .rating-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            margin-top: 12px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .rating-table thead th {
+            background: rgba(168, 85, 247, 0.1);
+            padding: 12px 8px;
+            font-size: 0.8em;
+            font-weight: 600;
+            color: var(--text-secondary);
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .rating-table thead th:first-child {
+            text-align: left;
+            padding-left: 16px;
+            min-width: 200px;
+        }
+
+        .rating-table tbody td {
+            padding: 14px 8px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+            text-align: center;
+        }
+
+        .rating-table tbody td:first-child {
+            text-align: left;
+            padding-left: 16px;
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        .rating-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .rating-table tbody tr:hover {
+            background: rgba(168, 85, 247, 0.04);
+        }
+
+        .rating-table input[type="radio"] {
+            margin: 0;
+        }
+
+        /* Other input inline */
+        .other-input {
+            display: inline-block;
+            width: calc(100% - 30px);
+            margin-left: 30px;
+            margin-top: 4px;
+            padding: 8px 12px;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background: var(--bg-input);
+            color: var(--text-primary);
+            font-size: 0.9em;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .other-input:focus {
+            outline: none;
+            border-color: var(--purple-400);
+            box-shadow: 0 0 0 3px rgba(168, 85, 247, 0.15);
+        }
+
+        /* Submit button */
+        .submit-btn {
+            background: linear-gradient(135deg, var(--purple-400), var(--cyan-400));
+            color: white;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.05em;
+            font-weight: 700;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            width: 100%;
+            margin-top: 10px;
+            font-family: 'Inter', sans-serif;
+            letter-spacing: 0.5px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(168, 85, 247, 0.35);
+        }
+
+        .submit-btn:active {
+            transform: translateY(0);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        /* Messages */
+        #successMessage {
+            display: none;
+            padding: 24px;
+            background: rgba(34, 197, 94, 0.1);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+            border-radius: 12px;
+            color: #86efac;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+
+        #errorMessage {
+            display: none;
+            padding: 24px;
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            color: #fca5a5;
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding: 24px;
+            color: var(--text-muted);
+            font-size: 0.85em;
+        }
+
+        .footer a {
+            color: var(--purple-400);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            color: var(--cyan-400);
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            body {
+                padding: 12px;
+            }
+
+            .header {
+                padding: 24px 20px;
+            }
+
+            h1 {
+                font-size: 1.5em;
+            }
+
+            .section {
+                padding: 20px;
+                border-radius: 12px;
+            }
+
+            .section-description {
+                padding-left: 0;
+            }
+
+            .rating-table thead th:first-child {
+                min-width: 120px;
+            }
+
+            .rating-table {
+                font-size: 0.85em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="logo-text">My AI Fluency</div>
+            <h1>Sales & Marketing Discovery</h1>
+            <p class="subtitle">Vulcan Industries</p>
+            <div class="intro">
+                Hey John — thanks for taking the time to go through this. No need to knock it out in one sitting. Fill out whatever you're comfortable with and save the rest for later. The more I understand about where things stand, the more useful I can be when we sit down together. No wrong answers — just looking for your honest take.
+            </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="progress-container">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progressBar"></div>
+            </div>
+            <div class="progress-text" id="progressText">0 of 40 answered</div>
+        </div>
+
+        <form id="discoveryForm">
+
+            <!-- Section 1: The Big Picture -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">1</span> The Big Picture</h2>
+                <p class="section-description">Help me understand the lay of the land at Vulcan.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">1.</span> What brought you to Vulcan Industries, and what's your mandate?<span class="required">*</span></label>
+                    <div class="help-text">What were you hired to do, change, or build?</div>
+                    <textarea name="mandate" required placeholder="What's the mission they brought you in for?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">2.</span> How would you describe the current state of Vulcan's sales and marketing when you arrived?<span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="currentState" value="Starting from scratch" required>
+                            <span>Starting from scratch</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="currentState" value="Foundation in place but needs modernizing">
+                            <span>Foundation in place but needs modernizing</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="currentState" value="Solid but needs to scale">
+                            <span>Solid but needs to scale</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="currentState" value="Strong but looking for an edge">
+                            <span>Strong but looking for an edge</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">3.</span> What are your top 3 priorities for the next 6 months?<span class="required">*</span></label>
+                    <input type="text" name="priority1" required placeholder="Priority #1">
+                    <input type="text" name="priority2" style="margin-top: 8px;" placeholder="Priority #2">
+                    <input type="text" name="priority3" style="margin-top: 8px;" placeholder="Priority #3">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">4.</span> What does success look like for you personally in Year 1?</label>
+                    <textarea name="yearOneSuccess" placeholder="What would make you feel like you nailed it?"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 2: Sales Process & Pipeline -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">2</span> Sales Process & Pipeline</h2>
+                <p class="section-description">Understanding how Vulcan currently wins business.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">5.</span> How does Vulcan currently generate new business?<span class="required">*</span></label>
+                    <div class="help-text">Check all that apply</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Trade shows / industry events">
+                            <span>Trade shows / industry events</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Inbound leads (website, phone)">
+                            <span>Inbound leads (website, phone)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Outbound prospecting (cold outreach)">
+                            <span>Outbound prospecting (cold outreach)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Referrals / word of mouth">
+                            <span>Referrals / word of mouth</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Existing account expansion">
+                            <span>Existing account expansion</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="RFP responses">
+                            <span>RFP responses</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Channel partners / reps">
+                            <span>Channel partners / reps</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="leadGen" value="Other">
+                            <span>Other</span>
+                        </div>
+                    </div>
+                    <input type="text" class="other-input" name="leadGenOther" placeholder="If other, please describe...">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">6.</span> Which of those channels brings in the most revenue today?</label>
+                    <input type="text" name="topRevenueChannel" placeholder="Your biggest revenue driver right now">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">7.</span> Which channel do you think has the most untapped potential?</label>
+                    <input type="text" name="untappedChannel" placeholder="Where's the biggest opportunity?">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">8.</span> What does a typical sales cycle look like?<span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="salesCycle" value="Under 30 days" required>
+                            <span>Under 30 days</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesCycle" value="1-3 months">
+                            <span>1-3 months</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesCycle" value="3-6 months">
+                            <span>3-6 months</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesCycle" value="6-12 months">
+                            <span>6-12 months</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesCycle" value="12+ months">
+                            <span>12+ months</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">9.</span> Who are you typically selling to?</label>
+                    <div class="help-text">Check all that apply</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="buyerPersona" value="Retail brand marketing teams">
+                            <span>Retail brand marketing teams</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="buyerPersona" value="Store operations / merchandising">
+                            <span>Store operations / merchandising</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="buyerPersona" value="Procurement / purchasing">
+                            <span>Procurement / purchasing</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="buyerPersona" value="C-suite / executive sponsors">
+                            <span>C-suite / executive sponsors</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="buyerPersona" value="Design / creative agencies">
+                            <span>Design / creative agencies</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="buyerPersona" value="Other">
+                            <span>Other</span>
+                        </div>
+                    </div>
+                    <input type="text" class="other-input" name="buyerPersonaOther" placeholder="If other, please describe...">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">10.</span> What's the average deal size?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="dealSize" value="Under $10K">
+                            <span>Under $10K</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="dealSize" value="$10K-$50K">
+                            <span>$10K - $50K</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="dealSize" value="$50K-$250K">
+                            <span>$50K - $250K</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="dealSize" value="$250K-$1M">
+                            <span>$250K - $1M</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="dealSize" value="$1M+">
+                            <span>$1M+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">11.</span> What are the top 3 objections or reasons you lose deals?</label>
+                    <input type="text" name="objection1" placeholder="Objection #1">
+                    <input type="text" name="objection2" style="margin-top: 8px;" placeholder="Objection #2">
+                    <input type="text" name="objection3" style="margin-top: 8px;" placeholder="Objection #3">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">12.</span> How do you currently track leads and opportunities?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tracking" value="CRM">
+                            <span>CRM</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tracking" value="Spreadsheets">
+                            <span>Spreadsheets</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tracking" value="Email / informal tracking">
+                            <span>Email / informal tracking</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tracking" value="ERP system">
+                            <span>ERP system</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tracking" value="Other">
+                            <span>Other</span>
+                        </div>
+                    </div>
+                    <input type="text" class="other-input" name="trackingOther" placeholder="If CRM or other, which one?">
+                </div>
+            </div>
+
+            <!-- Section 3: Marketing & Brand Presence -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">3</span> Marketing & Brand Presence</h2>
+                <p class="section-description">Where Vulcan's brand stands today.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">13.</span> How would you rate Vulcan's current brand awareness in the retail fixtures market?<span class="required">*</span></label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="brandAwareness" value="1 - Most prospects don't know us" required>
+                            <span>1 — Most prospects don't know us</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="brandAwareness" value="2 - Known in some circles">
+                            <span>2 — Known in some circles</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="brandAwareness" value="3 - Recognized but not top of mind">
+                            <span>3 — Recognized but not top of mind</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="brandAwareness" value="4 - Well known in our space">
+                            <span>4 — Well known in our space</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="brandAwareness" value="5 - Industry leader status">
+                            <span>5 — Industry leader status</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">14.</span> What marketing is Vulcan doing today?</label>
+                    <div class="help-text">Check all that apply</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Website / SEO">
+                            <span>Website / SEO</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Email marketing / newsletters">
+                            <span>Email marketing / newsletters</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Social media (LinkedIn, Facebook, etc.)">
+                            <span>Social media (LinkedIn, Facebook, etc.)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Trade show presence">
+                            <span>Trade show presence</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Case studies / portfolio pieces">
+                            <span>Case studies / portfolio pieces</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Video content">
+                            <span>Video content</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Print / catalogs">
+                            <span>Print / catalogs</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Paid advertising">
+                            <span>Paid advertising (digital or print)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="PR / press releases">
+                            <span>PR / press releases</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="currentMarketing" value="Not much right now">
+                            <span>Not much right now</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">15.</span> What marketing assets do you currently have?</label>
+                    <div class="help-text">Check all that apply</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="Project photography / portfolio">
+                            <span>Project photography / portfolio</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="Customer testimonials">
+                            <span>Customer testimonials</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="Case studies">
+                            <span>Case studies</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="Product / capability videos">
+                            <span>Product / capability videos</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="Sales decks / presentations">
+                            <span>Sales decks / presentations</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="Brochures / sell sheets">
+                            <span>Brochures / sell sheets</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="CAD renderings / 3D visuals">
+                            <span>CAD renderings / 3D visuals</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="assets" value="None of the above">
+                            <span>None of the above</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">16.</span> What's the current state of your website?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="websiteState" value="Outdated, needs a full overhaul">
+                            <span>Outdated, needs a full overhaul</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="websiteState" value="Functional but doesn't represent us well">
+                            <span>Functional but doesn't represent us well</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="websiteState" value="Decent but could be better">
+                            <span>Decent but could be better</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="websiteState" value="Strong, just needs content updates">
+                            <span>Strong, just needs content updates</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">17.</span> How active is Vulcan on social media?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="socialActivity" value="Posting regularly (weekly+)">
+                            <span>Posting regularly (weekly+)</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="socialActivity" value="Posting occasionally (monthly)">
+                            <span>Posting occasionally (monthly)</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="socialActivity" value="Have accounts but rarely post">
+                            <span>Have accounts but rarely post</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="socialActivity" value="Essentially inactive">
+                            <span>Essentially inactive</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">18.</span> What's the new marketing hire's primary focus going to be?</label>
+                    <textarea name="marketingHireFocus" placeholder="What did you hire them to tackle first?"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 4: Content & Storytelling -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">4</span> Content & Storytelling</h2>
+                <p class="section-description">The story Vulcan should be telling.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">19.</span> What story does Vulcan need to be telling that it isn't right now?</label>
+                    <textarea name="untoldStory" placeholder="What should the market know about Vulcan that they don't?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">20.</span> What makes Vulcan different from competitors?<span class="required">*</span></label>
+                    <div class="help-text">What would you want every prospect to know?</div>
+                    <textarea name="differentiator" required placeholder="Your competitive edge — what sets Vulcan apart?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">21.</span> Do you have customer success stories that aren't being leveraged?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="successStories" value="Yes, several great ones">
+                            <span>Yes, several great ones</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="successStories" value="A few but they're not documented">
+                            <span>A few but they're not documented</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="successStories" value="Not really">
+                            <span>Not really</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="successStories" value="Not sure yet (I'm still learning)">
+                            <span>Not sure yet (I'm still learning)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">22.</span> What kind of content do you think would move the needle most?</label>
+                    <div class="help-text">Check your top 3</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Case studies / project showcases">
+                            <span>Case studies / project showcases</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Video (facility tours, process, testimonials)">
+                            <span>Video (facility tours, process, testimonials)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="LinkedIn thought leadership">
+                            <span>LinkedIn thought leadership</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Email campaigns to prospects">
+                            <span>Email campaigns to prospects</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Trade show / event content">
+                            <span>Trade show / event content</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Sales enablement materials">
+                            <span>Sales enablement materials (decks, one-pagers)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="SEO / blog content">
+                            <span>SEO / blog content</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="contentTypes" value="Other">
+                            <span>Other</span>
+                        </div>
+                    </div>
+                    <input type="text" class="other-input" name="contentTypesOther" placeholder="If other, please describe...">
+                </div>
+            </div>
+
+            <!-- Section 5: Competitive Landscape -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">5</span> Competitive Landscape</h2>
+                <p class="section-description">Understanding who you're up against.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">23.</span> Who are Vulcan's top 2-3 competitors?</label>
+                    <input type="text" name="competitor1" placeholder="Competitor #1">
+                    <input type="text" name="competitor2" style="margin-top: 8px;" placeholder="Competitor #2">
+                    <input type="text" name="competitor3" style="margin-top: 8px;" placeholder="Competitor #3">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">24.</span> What are they doing better than Vulcan right now in sales or marketing?</label>
+                    <textarea name="competitorStrengths" placeholder="Where are they ahead?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">25.</span> What does Vulcan do better than them?</label>
+                    <textarea name="vulcanStrengths" placeholder="Where does Vulcan win?"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 6: Tools & Technology -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">6</span> Tools & Technology</h2>
+                <p class="section-description">What you're working with today.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">26.</span> What tools does your team currently use?</label>
+                    <div class="help-text">Check all that apply</div>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="CRM (Salesforce, HubSpot, other)">
+                            <span>CRM (Salesforce, HubSpot, other)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="Email platform (Mailchimp, Constant Contact, other)">
+                            <span>Email platform (Mailchimp, Constant Contact, other)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="Design tools (Adobe Creative Suite, Canva, other)">
+                            <span>Design tools (Adobe Creative Suite, Canva, other)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="Project management (Monday, Asana, Basecamp, other)">
+                            <span>Project management (Monday, Asana, Basecamp, other)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="Social media scheduler">
+                            <span>Social media scheduler</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="Analytics / reporting tools">
+                            <span>Analytics / reporting tools</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="DAM / file management system">
+                            <span>DAM / file management system</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="ERP system">
+                            <span>ERP system</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="tools" value="Other">
+                            <span>Other</span>
+                        </div>
+                    </div>
+                    <input type="text" class="other-input" name="toolsOther" placeholder="If other, please list...">
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">27.</span> What's the biggest gap in your current tech stack?</label>
+                    <textarea name="techGap" placeholder="What's missing or broken?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">28.</span> Has anyone on the team used AI tools?</label>
+                    <div class="checkbox-group">
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="ChatGPT">
+                            <span>ChatGPT</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="Claude">
+                            <span>Claude</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="Copilot / Bing AI">
+                            <span>Copilot / Bing AI</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="Midjourney / DALL-E (image generation)">
+                            <span>Midjourney / DALL-E (image generation)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="AI writing tools (Jasper, Copy.ai, etc.)">
+                            <span>AI writing tools (Jasper, Copy.ai, etc.)</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="None">
+                            <span>None</span>
+                        </div>
+                        <div class="checkbox-item">
+                            <input type="checkbox" name="aiTools" value="Not sure">
+                            <span>Not sure</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">29.</span> How would you describe your team's comfort level with AI?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="aiComfort" value="1 - Skeptical or unfamiliar">
+                            <span>1 — Skeptical or unfamiliar</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="aiComfort" value="2 - Curious but haven't tried much">
+                            <span>2 — Curious but haven't tried much</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="aiComfort" value="3 - Have dabbled, see potential">
+                            <span>3 — Have dabbled, see potential</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="aiComfort" value="4 - Actively using some tools">
+                            <span>4 — Actively using some tools</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="aiComfort" value="5 - Very comfortable, want to do more">
+                            <span>5 — Very comfortable, want to do more</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">30.</span> What's your biggest concern or hesitation about AI in your workflow?</label>
+                    <textarea name="aiConcerns" placeholder="Any worries, skepticism, or questions about AI?"></textarea>
+                </div>
+            </div>
+
+            <!-- Section 7: Team & Resources -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">7</span> Team & Resources</h2>
+                <p class="section-description">Understanding what you're working with.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">31.</span> How big is your sales team?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="salesTeamSize" value="Just me">
+                            <span>Just me</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesTeamSize" value="2-5 people">
+                            <span>2-5 people</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesTeamSize" value="6-15 people">
+                            <span>6-15 people</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="salesTeamSize" value="15+">
+                            <span>15+</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">32.</span> How big is your marketing team? (including the new hire)</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="marketingTeamSize" value="Just the new hire">
+                            <span>Just the new hire</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="marketingTeamSize" value="2-3 people">
+                            <span>2-3 people</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="marketingTeamSize" value="4+ people">
+                            <span>4+ people</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">33.</span> What's the new marketing person's background?</label>
+                    <textarea name="marketingHireBackground" placeholder="Brief description — where did they come from, what's their specialty?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">34.</span> What's your current marketing budget situation?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="budget" value="No dedicated budget yet">
+                            <span>No dedicated budget yet</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="budget" value="Small budget, need to be strategic">
+                            <span>Small budget, need to be strategic</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="budget" value="Moderate budget, room to invest">
+                            <span>Moderate budget, room to invest</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="budget" value="Well-funded, looking for the right approach">
+                            <span>Well-funded, looking for the right approach</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">35.</span> How much time per week can you and your marketing person realistically dedicate to new initiatives?</label>
+                    <div class="radio-group">
+                        <div class="radio-item">
+                            <input type="radio" name="timeAvailable" value="Less than 5 hours combined">
+                            <span>Less than 5 hours combined</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="timeAvailable" value="5-10 hours combined">
+                            <span>5-10 hours combined</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="timeAvailable" value="10-20 hours combined">
+                            <span>10-20 hours combined</span>
+                        </div>
+                        <div class="radio-item">
+                            <input type="radio" name="timeAvailable" value="20+ hours combined">
+                            <span>20+ hours combined</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 8: Where Do You Need Help? -->
+            <div class="section">
+                <h2 class="section-title"><span class="section-number">8</span> Where Do You Need Help?</h2>
+                <p class="section-description">This is the most important section. Be honest — it helps me help you.</p>
+
+                <div class="form-group">
+                    <label><span class="question-number">36.</span> Rate how much help you need in each area<span class="required">*</span></label>
+                    <div class="help-text">1 = We're good &nbsp;&nbsp;|&nbsp;&nbsp; 5 = Need significant help</div>
+                    <table class="rating-table">
+                        <thead>
+                            <tr>
+                                <th>Area</th>
+                                <th>1</th>
+                                <th>2</th>
+                                <th>3</th>
+                                <th>4</th>
+                                <th>5</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Lead generation / prospecting</td>
+                                <td><input type="radio" name="help_leadgen" value="1" required></td>
+                                <td><input type="radio" name="help_leadgen" value="2"></td>
+                                <td><input type="radio" name="help_leadgen" value="3"></td>
+                                <td><input type="radio" name="help_leadgen" value="4"></td>
+                                <td><input type="radio" name="help_leadgen" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Content creation (writing, visuals)</td>
+                                <td><input type="radio" name="help_content" value="1" required></td>
+                                <td><input type="radio" name="help_content" value="2"></td>
+                                <td><input type="radio" name="help_content" value="3"></td>
+                                <td><input type="radio" name="help_content" value="4"></td>
+                                <td><input type="radio" name="help_content" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Social media presence</td>
+                                <td><input type="radio" name="help_social" value="1" required></td>
+                                <td><input type="radio" name="help_social" value="2"></td>
+                                <td><input type="radio" name="help_social" value="3"></td>
+                                <td><input type="radio" name="help_social" value="4"></td>
+                                <td><input type="radio" name="help_social" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Email marketing</td>
+                                <td><input type="radio" name="help_email" value="1" required></td>
+                                <td><input type="radio" name="help_email" value="2"></td>
+                                <td><input type="radio" name="help_email" value="3"></td>
+                                <td><input type="radio" name="help_email" value="4"></td>
+                                <td><input type="radio" name="help_email" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Sales materials / presentations</td>
+                                <td><input type="radio" name="help_sales_materials" value="1" required></td>
+                                <td><input type="radio" name="help_sales_materials" value="2"></td>
+                                <td><input type="radio" name="help_sales_materials" value="3"></td>
+                                <td><input type="radio" name="help_sales_materials" value="4"></td>
+                                <td><input type="radio" name="help_sales_materials" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Website / SEO</td>
+                                <td><input type="radio" name="help_website" value="1" required></td>
+                                <td><input type="radio" name="help_website" value="2"></td>
+                                <td><input type="radio" name="help_website" value="3"></td>
+                                <td><input type="radio" name="help_website" value="4"></td>
+                                <td><input type="radio" name="help_website" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>CRM / pipeline management</td>
+                                <td><input type="radio" name="help_crm" value="1" required></td>
+                                <td><input type="radio" name="help_crm" value="2"></td>
+                                <td><input type="radio" name="help_crm" value="3"></td>
+                                <td><input type="radio" name="help_crm" value="4"></td>
+                                <td><input type="radio" name="help_crm" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Competitive intelligence</td>
+                                <td><input type="radio" name="help_competitive" value="1" required></td>
+                                <td><input type="radio" name="help_competitive" value="2"></td>
+                                <td><input type="radio" name="help_competitive" value="3"></td>
+                                <td><input type="radio" name="help_competitive" value="4"></td>
+                                <td><input type="radio" name="help_competitive" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Trade show strategy</td>
+                                <td><input type="radio" name="help_tradeshow" value="1" required></td>
+                                <td><input type="radio" name="help_tradeshow" value="2"></td>
+                                <td><input type="radio" name="help_tradeshow" value="3"></td>
+                                <td><input type="radio" name="help_tradeshow" value="4"></td>
+                                <td><input type="radio" name="help_tradeshow" value="5"></td>
+                            </tr>
+                            <tr>
+                                <td>Brand positioning / messaging</td>
+                                <td><input type="radio" name="help_brand" value="1" required></td>
+                                <td><input type="radio" name="help_brand" value="2"></td>
+                                <td><input type="radio" name="help_brand" value="3"></td>
+                                <td><input type="radio" name="help_brand" value="4"></td>
+                                <td><input type="radio" name="help_brand" value="5"></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">37.</span> If we could only fix ONE thing in the next 90 days, what would make the biggest impact?<span class="required">*</span></label>
+                    <textarea name="oneThingToFix" required placeholder="What's the single highest-impact thing?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">38.</span> What would make the new marketing hire's first 6 months wildly successful?</label>
+                    <textarea name="marketingHireSuccess" placeholder="What do they need to nail?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">39.</span> Is there anything EBSCO provides or requires from a corporate marketing standpoint that we should know about?</label>
+                    <div class="help-text">Brand guidelines, shared resources, reporting requirements, etc.</div>
+                    <textarea name="ebscoRequirements" placeholder="Any corporate constraints or resources?"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label><span class="question-number">40.</span> Anything else I should know?</label>
+                    <div class="help-text">Things keeping you up at night, opportunities you see, frustrations, ideas...</div>
+                    <textarea name="anythingElse" placeholder="Open floor — whatever's on your mind."></textarea>
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <div class="section" style="text-align: center;">
+                <p style="color: var(--text-secondary); margin-bottom: 16px; font-size: 0.95em;">
+                    That's it, John. This gives me exactly what I need to come prepared for our meeting — not with generic AI stuff, but with ideas tailored to what Vulcan actually needs.
+                </p>
+                <button type="submit" class="submit-btn" id="submitBtn">Submit Questionnaire</button>
+                <div id="successMessage">
+                    <strong>Got it!</strong> Thanks, John. I'll review everything and come to our meeting with specific ideas for you and the team. Talk soon.
+                </div>
+                <div id="errorMessage">
+                    Something went wrong. Please try again or email your answers to <a href="mailto:frank@mydamservices.com" style="color: #fca5a5;">frank@mydamservices.com</a>
+                </div>
+            </div>
+
+        </form>
+
+        <!-- Footer -->
+        <div class="footer">
+            <a href="https://myaifluency.com" target="_blank">My AI Fluency</a> &nbsp;|&nbsp; frank@mydamservices.com &nbsp;|&nbsp; 908.803.4587
+        </div>
+    </div>
+
+    <script>
+        // Progress tracking
+        function updateProgress() {
+            const form = document.getElementById('discoveryForm');
+            const allInputs = form.querySelectorAll('input[required], textarea[required]');
+            const radioGroups = {};
+            let answered = 0;
+            let total = 0;
+
+            // Count all form interactions (not just required)
+            const textInputs = form.querySelectorAll('input[type="text"], input[type="email"], input[type="tel"], input[type="url"], textarea');
+            textInputs.forEach(input => {
+                if (!input.classList.contains('other-input')) {
+                    total++;
+                    if (input.value.trim()) answered++;
+                }
+            });
+
+            const radioNames = new Set();
+            form.querySelectorAll('input[type="radio"]').forEach(r => radioNames.add(r.name));
+            radioNames.forEach(name => {
+                total++;
+                if (form.querySelector(`input[name="${name}"]:checked`)) answered++;
+            });
+
+            const checkboxNames = new Set();
+            form.querySelectorAll('input[type="checkbox"]').forEach(c => checkboxNames.add(c.name));
+            checkboxNames.forEach(name => {
+                total++;
+                if (form.querySelector(`input[name="${name}"]:checked`)) answered++;
+            });
+
+            // Simplify to 40 total
+            const progress = Math.min(Math.round((answered / 40) * 100), 100);
+            document.getElementById('progressBar').style.width = progress + '%';
+            document.getElementById('progressText').textContent = `${answered} of 40 answered`;
+        }
+
+        // Listen for all input changes
+        document.getElementById('discoveryForm').addEventListener('input', updateProgress);
+        document.getElementById('discoveryForm').addEventListener('change', updateProgress);
+
+        // Make checkbox/radio items clickable on the full row
+        document.querySelectorAll('.checkbox-item, .radio-item').forEach(item => {
+            item.addEventListener('click', function(e) {
+                if (e.target.tagName !== 'INPUT') {
+                    const input = this.querySelector('input');
+                    if (input.type === 'checkbox') {
+                        input.checked = !input.checked;
+                    } else {
+                        input.checked = true;
+                    }
+                    input.dispatchEvent(new Event('change', { bubbles: true }));
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('discoveryForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const btn = document.getElementById('submitBtn');
+            btn.disabled = true;
+            btn.textContent = 'Submitting...';
+
+            const formData = new FormData(this);
+            const data = {};
+
+            // Handle multiple values (checkboxes)
+            for (const [key, value] of formData.entries()) {
+                if (data[key]) {
+                    if (Array.isArray(data[key])) {
+                        data[key].push(value);
+                    } else {
+                        data[key] = [data[key], value];
+                    }
+                } else {
+                    data[key] = value;
+                }
+            }
+
+            // Convert arrays to comma-separated strings
+            for (const key in data) {
+                if (Array.isArray(data[key])) {
+                    data[key] = data[key].join(', ');
+                }
+            }
+
+            // Add timestamp
+            data.timestamp = new Date().toISOString();
+            data.source = 'Vulcan Industries - John Morris';
+
+            // Send to Google Apps Script
+            const SCRIPT_URL = 'YOUR_GOOGLE_APPS_SCRIPT_URL';
+
+            if (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
+                // Demo mode - show success
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                btn.textContent = 'Submitted';
+                console.log('Form data:', JSON.stringify(data, null, 2));
+                return;
+            }
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            })
+            .then(() => {
+                document.getElementById('successMessage').style.display = 'block';
+                document.getElementById('errorMessage').style.display = 'none';
+                btn.textContent = 'Submitted';
+            })
+            .catch(error => {
+                document.getElementById('errorMessage').style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Try Again';
+                console.error('Error:', error);
+            });
+        });
+    </script>
+</body>
+</html>
