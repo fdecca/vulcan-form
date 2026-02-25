@@ -1445,16 +1445,7 @@
             data.source = 'Vulcan Industries - John Morris';
 
             // Send to Google Apps Script
-            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMKOtrfDGuelNsQONt6nquoSCoqeYnaLCjhvYr1v8Uq3I_M7UYt23-hlGdH3naxrnG/exec';
-
-            if (SCRIPT_URL === 'YOUR_GOOGLE_APPS_SCRIPT_URL') {
-                // Demo mode - show success
-                document.getElementById('successMessage').style.display = 'block';
-                document.getElementById('errorMessage').style.display = 'none';
-                btn.textContent = 'Submitted';
-                console.log('Form data:', JSON.stringify(data, null, 2));
-                return;
-            }
+            const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxq6o3NX3Z26JHgIBm8VneaCNyLXc6tUXeqck_Tz41_a0nTYiTf_MdB4cq6YVONEIEX/exec';
 
             fetch(SCRIPT_URL, {
                 method: 'POST',
